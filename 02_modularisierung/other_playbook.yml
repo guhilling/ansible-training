@@ -1,0 +1,6 @@
+---
+- name: Other Play
+  hosts: all
+
+  tasks:
+    - include_role: createtmpfile

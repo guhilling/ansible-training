@@ -1,0 +1,12 @@
+$TTL    3600
+@       IN      SOA     student.training.hilling.de. gunnar.hilling.de (
+                            2021112901  ; Serial
+                            600         ; Refresh
+                            600         ; Retry
+                            600         ; Expire
+                            60 )       ; Negative Cache TTL
+training.hilling.de.	300	IN	NS	ns1
+ns1			            300	IN	A	116.203.242.177
+workstation		        300	IN	A	23.88.37.157
+ghilling		        300	IN	A	23.88.35.154
+apoenopp		        300	IN	A	23.88.123.253

@@ -1,0 +1,4 @@
+---
+tmpfile_name: demotempfile
+tmpfile_content: "Hello, World!"
+tmpfile_delete: false

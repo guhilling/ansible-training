@@ -1,0 +1,23 @@
+---
+# tasks file for createtmpfile
+- block:
+    - name: create file
+      copy:
+        dest: "/tmp/{{ tmpfile_name }}"
+        content: "{{ tmpfile_content }}"
+
+    - name: output
+      debug:
+        msg: "created tmpfile_name: /tmp/{{ tmpfile_name }}"
+  when: not tmpfile_delete
+
+- block:
+    - name: delete file
+      file:
+        path: "/tmp/{{ tmpfile_name }}"
+        state: absent
+
+    - name: output
+      debug:
+        msg: "deleted tmpfile_name: /tmp/{{ tmpfile_name }}"
+  when: tmpfile_delete

@@ -1,0 +1,25 @@
+---
+- name: Demos for Reuse
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: create tmpfile via role
+      import_role:
+        name: createtmpfile
+
+    - name: debug var
+      debug:
+        msg: "value of tmpfile_name: /tmp/{{ tmpfile_name }}"
+      when: tmpfile_name is defined
+    - name: undefined
+      debug:
+        msg: "tmpfile_name undefined"
+      when: tmpfile_name is not defined
+
+  post_tasks:
+    - name: rm tmpfile via role
+      include_role:
+        name: createtmpfile
+      vars:
+        tmpfile_delete: true

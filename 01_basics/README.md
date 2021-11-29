@@ -4,8 +4,8 @@
 und die anderen Programme benötigen eine ```ansible.cfg```-Datei.
 
 mit aufsteigendem Vorrang:
-1. /etc/ansible.cfg
-2. /ansible.cfg
+1. /etc/ansible/ansible.cfg
+2. ./ansible.cfg
 3. $ANSIBLE_CONFIG
 
 ## Wichtig:

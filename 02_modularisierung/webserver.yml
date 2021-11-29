@@ -1,0 +1,41 @@
+---
+- name: Install Apache
+  hosts: training
+  become: true
+  gather_facts: true
+  vars:
+    training_apache_packages:
+      - apache2
+      - apache2-utils
+      - apache2-doc
+
+  pre_tasks:
+    - name: show variable pre
+      debug:
+        var: training_apache_packages
+
+  roles:
+
+  tasks:
+    - name: install apache (play)
+      import_tasks: install_apache.yml
+
+
+  post_tasks:
+    - name: show variable post
+      debug:
+        var: training_apache_packages
+
+- name: Test Apache
+  hosts: localhost
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: test apache
+      uri:
+        url: http://ghilling.training.hilling.de
+      register: apache_uri_result
+    - name: show variable
+      debug:
+        var: training_apache_packages

@@ -3,7 +3,7 @@
       apt:
         name: "{{ training_apache_packages }}"
         state: latest
-        update_cache: false
+        update_cache: true
       vars:
         training_apache_packages:
           - apache2

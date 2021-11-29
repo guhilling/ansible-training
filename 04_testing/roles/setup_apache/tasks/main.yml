@@ -1,13 +1,13 @@
 ---
-    - name: install apache
-      apt:
-        name: "{{ training_apache_packages }}"
-        state: latest
-        update_cache: true
-      vars:
-        training_apache_packages:
-          - apache2
-          - apache2-utils
-    - name: show variable tasks
-      debug:
-        var: training_apache_packages
+- name: install apache
+  apt:
+    name: "{{ training_apache_packages }}"
+    state: latest
+    update_cache: false
+  vars:
+    training_apache_packages:
+      - apache2
+      - apache2-utils
+- name: show variable tasks
+  debug:
+    var: training_apache_packages

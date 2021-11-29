@@ -1,14 +1,13 @@
 ---
 - name: Demos for Reuse
-  hosts: all
+  hosts: training
   gather_facts: false
   vars:
     tmpfile_name: testfile
 
   roles:
     - role: createtmpfile
-      vars:
-        tmpfile_name: paramtestfile # Achtung: Hier gibt es 2 Wege ...
+      tmpfile_name: paramtestfile # Achtung: Hier gibt es 2 Wege ...
 
   tasks:
     - name: debug var

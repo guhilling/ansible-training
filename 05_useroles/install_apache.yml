@@ -3,6 +3,13 @@
   become: true
   hosts: training
   gather_facts: true
+  max_fail_percentage: 0%
+  serial:
+  - 1
+  - 10%
+  - 100%
+
+
   vars:
     authorized_key_list:
       - name: gunnar

@@ -1,4 +1,7 @@
 - name: grog.authorized-key
-  version: 1.1.5
+  version: v1.1.5
 
-   
+- src: git+https://github.com/guhilling/ansible-training.git#02_modularisierung/roles/setup_apache
+  name: my_apache
+  version: v1
+

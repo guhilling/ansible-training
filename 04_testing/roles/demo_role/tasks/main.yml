@@ -1,0 +1,9 @@
+---
+- name: update apt cache
+  apt:
+    update_cache: true
+- name: install apache
+  apt:
+    name: apache2
+    state: latest
+    update_cache: false

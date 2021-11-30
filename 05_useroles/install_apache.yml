@@ -1,0 +1,35 @@
+---
+- name: Demo Play
+  become: true
+  hosts: training
+  gather_facts: true
+  vars:
+    authorized_key_list:
+      - name: gunnar
+        authorized_keys:
+          - key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCwfqApyhJ0BLvgRclbkOGqfVKaGimQFjaOyqUkt9waZF0rmkbwsoOraKShJSa74H0095a6BTTf2LYVSW/PEc7f3BHr3to3awNW/LYmHS6oyct3sHKiFBH6zUe33q1JR2gNQO8li+xAe/xIBu9ROYL/xRmh1HYmaP5Oa7U/L8U10SLxJAkdIqiql2x/fYeXyl1MG6+TxQxpU1LsYPhubHE//SLkwE8zH5SMEx179D2liYwifz0j46KrgRRel6N1wfCmHiBeA2Ur5fgXiwB/DGi8Ovdip7m87yJ5Wq3OE+lzSFXHD2uKCL7CFnh5XBkbp/MLUK6Lz3rv4vVZEx8baeYUwgz1Z1fT9uurNdPsFsBTEAT/s6lOcHSJIKuulOqUv9Ig+eH+drB2DQxbEpH+4w12iQ4Hh5paRZaBPysz92rxQXa4eiCVQqzIk53+3QBhoKCZTbqsdMpROb7WGyDQ5rL1ai6FlYuVBsgNuo8mS5zVoD69ct4im4ChQjmDUi1zDhj7ZBQr1gLRlifXpL+uNylQo9/+fZ2uSaAudPu7TdqlTwuutXAkwVIAZwpKiYhFpBxv6gzAY9jiIwCUpeqNokWRqd0n4pK6TgSezhn6duEjKLHswk0lOwTmLZtbUHvGfOp/88GLV4GtSDFM/2rUvjytZNwB6JFaCPKAsDpNv40AHw== gunnar@hilling.de
+
+  tasks:
+    - name: add user
+      user:
+        name: gunnar
+        state: present
+        shell: /bin/bash
+        generate_ssh_key: true
+
+    - name: add key
+      import_role:
+        name: grog.authorized-key
+
+
+    - name: check user
+      command: id gunnar
+      register: gunnar_id_result
+      changed_when: false
+      check_mode: false
+
+    - name: dependent task
+      copy:
+        dest: /tmp/somefile.txt
+        content: "Hello, World!"
+      when: not ansible_check_mode

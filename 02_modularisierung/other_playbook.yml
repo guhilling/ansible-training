@@ -3,4 +3,5 @@
   hosts: all
 
   tasks:
-    - include_role: createtmpfile
+    - ansible.builtin.include_role:
+        name: createtmpfile

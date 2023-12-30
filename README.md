@@ -5,12 +5,14 @@ Folgende Aufgabe steht an:
 2. Ziele:
    1. Name-Server (bind).
    2. Web-Server (apache).
-3. Ansible läuft entweder lokal (Linux-VM) oder auf ```workstation-01.hilling.de```
+3. Ansible läuft lokal.
 4. Ziel ist es, das Ganze möglichst "sauber" und nachvollziehbar aufzubauen.
 
 ## Inhalt
 
 * Basics/Installation
+   * Linux/Windows/Mac
+   * Oder vom Workstation-Rechner
 * Ad-Hoc Kommandos
 * Inventory (yaml)
 * Strukturierung (roles)

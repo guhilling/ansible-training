@@ -11,19 +11,19 @@
 
   pre_tasks:
     - name: show variable pre
-      debug:
+      ansible.builtin.debug:
         var: training_apache_packages
 
   roles:
 
   tasks:
     - name: install apache (play)
-      import_tasks: install_apache.yml
+      ansible.builtin.import_tasks: install_apache.yml
 
 
   post_tasks:
     - name: show variable post
-      debug:
+      ansible.builtin.debug:
         var: training_apache_packages
 
 - name: Test Apache
@@ -33,9 +33,9 @@
 
   tasks:
     - name: test apache
-      uri:
+      ansible.builtin.uri:
         url: http://ghilling.training.hilling.de
       register: apache_uri_result
     - name: show variable
-      debug:
+      ansible.builtin.debug:
         var: training_apache_packages

@@ -1,25 +1,27 @@
 ---
 - name: Demos for Reuse
-  hosts: all
+  hosts: training
   gather_facts: false
+  vars:
+    tmpfile_name: demo-file
 
   tasks:
     - name: create tmpfile via role
-      import_role:
+      ansible.builtin.import_role:
         name: createtmpfile
 
     - name: debug var
-      debug:
+      ansible.builtin.debug:
         msg: "value of tmpfile_name: /tmp/{{ tmpfile_name }}"
       when: tmpfile_name is defined
     - name: undefined
-      debug:
+      ansible.builtin.debug:
         msg: "tmpfile_name undefined"
       when: tmpfile_name is not defined
 
   post_tasks:
     - name: rm tmpfile via role
-      include_role:
+      ansible.builtin.include_role:
         name: createtmpfile
       vars:
         tmpfile_delete: true

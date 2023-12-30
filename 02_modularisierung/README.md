@@ -1,4 +1,4 @@
-# Modularisierung
+# Modularisierung (Kapitel 5, 6)
 
 https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html#playbooks-reuse
 
@@ -20,3 +20,4 @@ eingebundene Dateien werden nicht mit einbezogen!
 
 Faustregel: Wenn möglich, die statische Variante verwenden und _Roles_ verwenden! (https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html)
 
+Bearbeiten: Kapitel 4/Yaml!

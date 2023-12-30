@@ -1,6 +1,6 @@
 ---
     - name: install apache
-      apt:
+      ansible.builtin.apt:
         name: "{{ training_apache_packages }}"
         state: latest
         update_cache: false
@@ -9,5 +9,5 @@
           - apache2
           - apache2-utils
     - name: show variable tasks
-      debug:
+      ansible.builtin.debug:
         var: training_apache_packages

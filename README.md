@@ -20,6 +20,16 @@ Folgende Aufgabe steht an:
 * Kontrollstrukturen
 * Testing
 
+## Aus dem Buch 
+
+* Kapitel 1 Selbst installieren
+* Kapitel 2-4 Kurz
+* Kapitel 5 Komplett
+* Kapitel 6 Komplett
+* Kapitel 7/8 Kurz
+* Ansonsten:
+   * Vault
+   * Check- und Diff-Mode
 
 ## Pakete
 
